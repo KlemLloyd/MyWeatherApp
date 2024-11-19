@@ -1,18 +1,17 @@
-# KMP Weather App 🌦️
-A Kotlin Multiplatform (KMP) Weather App designed for Android and iOS platforms, providing real-time weather updates and forecasts. This project demonstrates the power of code sharing across platforms while leveraging platform-specific UI frameworks like Jetpack Compose for Android and SwiftUI for iOS.
+This is a Kotlin Multiplatform project targeting Android, iOS.
 
-## Features
-- 🌍 Cross-Platform: Shared business logic for Android and iOS using Kotlin Multiplatform.
-- ☁️ Weather API Integration: Fetch current weather conditions and forecasts via a weather API.
-- 📱 Platform-Specific UIs: Native interfaces for Android and iOS, delivering a seamless user experience.
-⚡ Modern Architecture: Built with Ktor, Coroutines, Kotlinx.serialization, and Jetpack Compose/SwiftUI.
-- 🔄 Responsive Design: Adaptive layouts for various screen sizes and orientations.
-- 🔗 Open Source: Designed to be extensible and beginner-friendly for developers exploring Kotlin Multiplatform.
+* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
+  It contains several subfolders:
+  - `commonMain` is for code that’s common for all targets.
+  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
+    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
+    `iosMain` would be the right folder for such calls.
 
-## Technologies Used
-- Kotlin Multiplatform Mobile (KMM)
-- Ktor: Networking library for API calls.
-- Kotlinx.serialization: JSON parsing and data handling.
-- SQLDelight: Caching for offline support.
-- Jetpack Compose: Modern UI toolkit for Android.
-- SwiftUI: Declarative UI framework for iOS.
+* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
+  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+
+* `/shared` is for the code that will be shared between all targets in the project.
+  The most important subfolder is `commonMain`. If preferred, you can add code to the platform-specific folders here too.
+
+
+Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
